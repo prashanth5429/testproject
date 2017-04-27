@@ -2,3 +2,4 @@ This is test file
 to test the contents
 of a notepad file
 for git demo
+added new line
