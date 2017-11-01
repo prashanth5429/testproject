@@ -1,3 +1,5 @@
-Test File
-Test file again.
-sample file
+Please prepare a PS script to delete files with below conditions.
+
+File type exclusion
+Folder exclusion
+No of days parameter
