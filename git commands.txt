@@ -1,0 +1,37 @@
+git show-ref
+git log --oneline --graph master
+git log --oneline --graph origin/master
+git diff master origin/master
+
+If branches like master and origin/master point to different commits, and head also points to other commit, then follow these steps to get back to track: https://goo.gl/553eyb
+
+To recover from your situation, you should create a branch that points to the commit currently pointed to by your detached HEAD:
+
+git branch temp
+git checkout temp
+(these two commands can be abbreviated as git checkout -b temp)
+
+This will reattach your HEAD to the new temp branch.
+
+Next, you should compare the current commit (and its history) with the normal branch on which you expected to be working:
+
+git log --graph --decorate --pretty=oneline --abbrev-commit master origin/master temp
+git diff master temp
+git diff origin/master temp
+(You will probably want to experiment with the log options: add -p, leave off --pretty=… to see the whole log message, etc.)
+
+If your new temp branch looks good, you may want to update (e.g.) master to point to it:
+
+git branch -f master temp
+git checkout master
+(these two commands can be abbreviated as git checkout -B master temp)
+
+You can then delete the temporary branch:
+
+git branch -d temp
+Finally, you will probably want to push the reestablished history:
+
+git push origin master
+You may need to add --force to the end of this command to push if the remote branch can not be “fast-forwarded” to the new commit (i.e. you dropped, or rewrote some existing commit, or otherwise rewrote some bit of history).
+
+If you were in the middle of a rebase operation you should probably clean it up. You can check whether a rebase was in process by looking for the directory .git/rebase-merge/. You can manually clean up the in-progress rebase by just deleting that directory (e.g. if you no longer remember the purpose and context of the active rebase operation). Usually you would use git rebase --abort, but that does some extra resetting that you probably want to avoid (it moves HEAD back to the original branch and resets it back to the original commit, which will undo some of the work we did above).
