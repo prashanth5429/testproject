@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 "my new file" 
+=======
+my new file
+
+>>>>>>> 2146c515caec971416f1883442b653f814b4d5bc
