@@ -26,7 +26,6 @@
 
 
 If branches like master and origin/master point to different commits, and head also points to other commit,
-
 then follow these steps to get back to track: https://goo.gl/553eyb
 
 To recover from your situation, you should create a branch that points to the commit currently pointed to by your detached HEAD:
