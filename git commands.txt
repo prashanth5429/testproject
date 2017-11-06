@@ -6,7 +6,7 @@
 	git log --oneline --graph origin/master
 
 3.	git diff master origin/master
-		View differences
+		View differences.
 
 4. 	git ls-tree -r origin/master
 		View files in remote directory/branch
