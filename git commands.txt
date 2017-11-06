@@ -1,7 +1,29 @@
-git show-ref
-git log --oneline --graph master
-git log --oneline --graph origin/master
-git diff master origin/master
+1. 	git show-ref
+		View sha value of origin/master, master
+
+2. 	git log --oneline --graph master
+		View log of master in graph and in oneline.
+	git log --oneline --graph origin/master
+
+3.	git diff master origin/master
+		View differences
+
+4. 	git ls-tree -r origin/master
+		View files in remote directory/branch
+5. 	git add -A 
+		stages All
+	git add . 
+		stages new and modified, without deleted
+	git add -u 
+		stages modified and deleted, without new
+
+6. 	'git add' and 'git rm' have --dry-run (-n) option, but 'git commit -n' is different. It means no verify.
+
+
+
+
+
+
 
 If branches like master and origin/master point to different commits, and head also points to other commit, then follow these steps to get back to track: https://goo.gl/553eyb
 
